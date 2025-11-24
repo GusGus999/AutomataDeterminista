@@ -112,7 +112,8 @@ public class Automata {
 					estado = 5;
 					lexema += caracter;
 				} else if (caracter == 'b') {
-					
+					estado = 11;
+					lexema += caracter;
 				} else if (caracter == 'c') {
 					lexema += caracter;
 				} else if (caracter == ' ') {
