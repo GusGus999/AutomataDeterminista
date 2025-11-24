@@ -1,12 +1,17 @@
 package automatas;
 
+import java.util.Scanner;
+
 public class Automata {
 	public static void main(String[] args) {
+		Scanner leer = new Scanner(System.in);
+		
 		int estado = 0;
 		int indice = 0;
 		String lexema = "";
-		String cadena = "bbaabbaacccc" + " ";
 		boolean aceptacion = false;
+		System.out.print("Ingresa la cadena a evaluar: ");
+        String cadena = leer.nextLine() + " ";
 		
 		for (indice = 0; indice < cadena.length(); indice++) {
 			char caracter = cadena.charAt(indice);
@@ -123,7 +128,6 @@ public class Automata {
 				
 				break;
 				
-				
 			case 7:
 				if(caracter == 'b') {
 					estado = 8;
@@ -191,7 +195,6 @@ public class Automata {
 				}
 				break;	
 			}
-			
 			System.out.print("\n");
 			
 		}
