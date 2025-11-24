@@ -5,7 +5,7 @@ public class Automata {
 		int estado = 0;
 		int indice = 0;
 		String lexema = "";
-		String cadena = "aabb" + " ";
+		String cadena = "bbaabbaacccc" + " ";
 		boolean aceptacion = false;
 		
 		for (indice = 0; indice < cadena.length(); indice++) {
@@ -26,6 +26,8 @@ public class Automata {
 					estado = 1;
 					lexema += caracter;
 				} else if (caracter == 'b') {
+					estado = 7;
+					lexema += caracter;
 					
 				} else if (caracter == 'c') {
 					lexema += caracter;
@@ -107,19 +109,88 @@ public class Automata {
 			case 6:
 				aceptacion = true;
 				if (caracter == 'a') {
-					
+					estado = 5;
+					lexema += caracter;
 				} else if (caracter == 'b') {
 					
 				} else if (caracter == 'c') {
 					lexema += caracter;
 				} else if (caracter == ' ') {
 					
+				} else
+					System.out.println("Error lexico");
+				
+				break;
+				
+				
+			case 7:
+				if(caracter == 'b') {
+					estado = 8;
+					lexema += caracter;
+				} else if (caracter == 'a') {
+					estado = 9;
+					lexema += caracter;
+				} else if (caracter == 'c') {
+					lexema += caracter;
 				} else {
 					System.out.println("Error lexico");
 				}
 				break;
 				
+			case 8:
+				if (caracter == 'b') {
+					estado = 7;
+					lexema += caracter;
+				} else if (caracter == 'a') {
+					estado = 10;
+					lexema += caracter;
+				} else if (caracter == 'c') {
+					lexema += caracter;
+				} else {
+					System.out.println("Error lexico");
+				}
+				break;
+			case 9:
+				if (caracter == 'b') {
+					estado = 10;
+					lexema += caracter;
+				} else if (caracter == 'a') {
+					estado = 11;
+					lexema += caracter;
+				} else if (caracter == 'c') {
+					lexema += caracter;
+				} else {
+					System.out.println("Error lexico");
+				}
+				break;
+			case 10:
+				if (caracter == 'b') {
+					estado = 9;
+					lexema += caracter;
+				} else if (caracter == 'a') {
+					estado = 6;
+					lexema += caracter;
+				} else if (caracter == 'c') {
+					lexema += caracter;
+				} else {
+					System.out.println("Error lexico");
+				}
+				break;
+			case 11:
+				if (caracter == 'b') {
+					estado = 6;
+					lexema += caracter;
+				} else if (caracter == 'a') {
+					estado = 9;
+					lexema += caracter;
+				} else if (caracter == 'c') {
+					lexema += caracter;
+				} else {
+					System.out.println("Error lexico");
+				}
+				break;	
 			}
+			
 			System.out.print("\n");
 			
 		}
@@ -131,8 +202,6 @@ public class Automata {
 			System.out.println(lexema);
 			System.out.println("Cadena no valida");
 		}
-		
-		
 		
 	}
 }
