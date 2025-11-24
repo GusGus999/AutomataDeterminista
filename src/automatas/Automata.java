@@ -199,10 +199,10 @@ public class Automata {
 			
 			if (aceptacion) {
 				System.out.print(lexema);
-				System.out.println(" Cadena valida" + "\n");
+				System.out.println("\nCadena valida" + "\n");
 			} else {
 				System.out.print(lexema);
-				System.out.println("Cadena no valida" + "\n");
+				System.out.println("\nCadena no valida" + "\n");
 			}
 			
 			System.out.print("¿Deseas evaluar otra cadena? (s/n): ");
