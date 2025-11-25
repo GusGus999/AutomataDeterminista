@@ -14,7 +14,7 @@ public class Automata {
             boolean aceptacion = false;
 
             System.out.print("Ingresa la cadena a evaluar: ");
-            String cadena = leer.nextLine() + " ";
+            String cadena = leer.nextLine();
             
             System.out.println("___________________________________");
             System.out.printf("| %-7s | %-9s | %-10s |\n", "Índice", "Carácter", "Aceptación");
@@ -92,6 +92,7 @@ public class Automata {
                         estado = 3;
                         lexema += caracter;
                     } else if (caracter == 'b') {
+                    	aceptacion = true;
                         estado = 6;
                         lexema += caracter;
                     } else if (caracter == 'c') {
@@ -103,6 +104,7 @@ public class Automata {
                     
                 case 5:
                     if (caracter == 'a') {
+                    	aceptacion = true;
                         estado = 6;
                         lexema += caracter;
                     } else if (caracter == 'b') {
@@ -118,9 +120,11 @@ public class Automata {
                 case 6:
                     aceptacion = true;
                     if (caracter == 'a') {
+                    	aceptacion = false;
                         estado = 5;
                         lexema += caracter;
                     } else if (caracter == 'b') {
+                    	aceptacion = false;
                         estado = 11;
                         lexema += caracter;
                     } else if (caracter == 'c') {
@@ -177,6 +181,7 @@ public class Automata {
                         estado = 9;
                         lexema += caracter;
                     } else if (caracter == 'a') {
+                    	aceptacion = true;
                         estado = 6;
                         lexema += caracter;
                     } else if (caracter == 'c') {
@@ -187,6 +192,7 @@ public class Automata {
                     break;
                 case 11:
                     if (caracter == 'b') {
+                    	aceptacion = true;
                         estado = 6;
                         lexema += caracter;
                     } else if (caracter == 'a') {
