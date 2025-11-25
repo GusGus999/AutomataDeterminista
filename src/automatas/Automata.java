@@ -9,201 +9,173 @@ public class Automata {
 		
 		do {
 			int estado = 0;
-			int indice = 0;
 			String lexema = "";
 			boolean aceptacion = false;
 
 			System.out.print("Ingresa la cadena a evaluar: ");
 			String cadena = leer.nextLine() + " ";
+			cadena = cadena.toLowerCase();
 			
-			for (indice = 0; indice < cadena.length(); indice++) {
-				char caracter = cadena.charAt(indice);
+			for (char letra : cadena.toCharArray()) {
 				aceptacion = false;
 				
-				if (caracter != 'a' && caracter != 'b' && caracter != 'c' && caracter != ' ' ) {
+				if (letra != 'a' && letra != 'b' && letra != 'c' && letra != ' ' ) {
 					System.out.println("Caracter invalido");
 					break;
 				}
 				
 				switch (estado) {
 				case 0:
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 1;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 7;
-						lexema += caracter;
-						
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 					
 				case 1:
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 2;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 3;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
 					}
 					break;
 					
 				case 2:
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 1;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 4;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
 					}
 					break;
 					
 				case 3:
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 4;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 5;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 					
 				case 4: 
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 3;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 6;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 					
 				case 5:
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 6;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 3;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 					
 				case 6:
 					aceptacion = true;
-					if (caracter == 'a') {
+					if (letra == 'a') {
 						estado = 5;
-						lexema += caracter;
-					} else if (caracter == 'b') {
+						lexema += letra;
+					} else if (letra == 'b') {
 						estado = 11;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else if (caracter == ' ') {
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} else if (letra == ' ') {
 						
-					} else
-						System.out.println("Error lexico");
-					
+					} 
 					break;
 					
 				case 7:
-					if(caracter == 'b') {
+					if(letra == 'b') {
 						estado = 8;
-						lexema += caracter;
-					} else if (caracter == 'a') {
+						lexema += letra;
+					} else if (letra == 'a') {
 						estado = 9;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
 					}
 					break;
 					
 				case 8:
-					if (caracter == 'b') {
+					if (letra == 'b') {
 						estado = 7;
-						lexema += caracter;
-					} else if (caracter == 'a') {
+						lexema += letra;
+					} else if (letra == 'a') {
 						estado = 10;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 				case 9:
-					if (caracter == 'b') {
+					if (letra == 'b') {
 						estado = 10;
-						lexema += caracter;
-					} else if (caracter == 'a') {
+						lexema += letra;
+					} else if (letra == 'a') {
 						estado = 11;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 				case 10:
-					if (caracter == 'b') {
+					if (letra == 'b') {
 						estado = 9;
-						lexema += caracter;
-					} else if (caracter == 'a') {
+						lexema += letra;
+					} else if (letra == 'a') {
 						estado = 6;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
-					}
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
+					} 
 					break;
 				case 11:
-					if (caracter == 'b') {
+					if (letra == 'b') {
 						estado = 6;
-						lexema += caracter;
-					} else if (caracter == 'a') {
+						lexema += letra;
+					} else if (letra == 'a') {
 						estado = 9;
-						lexema += caracter;
-					} else if (caracter == 'c') {
-						lexema += caracter;
-					} else {
-						System.out.println("Error lexico");
+						lexema += letra;
+					} else if (letra == 'c') {
+						lexema += letra;
 					}
 					break;	
 				}
 			}
 			
-			if (aceptacion) {
-				System.out.print(lexema);
-				System.out.println(" Cadena valida" + "\n");
-			} else {
-				System.out.print(lexema);
-				System.out.println("Cadena no valida" + "\n");
-			}
+			if (aceptacion)
+				System.out.print(lexema + " Cadena valida" + "\n");
+			else
+				System.out.print(lexema + " Cadena no valida" + "\n");
+			
 			
 			System.out.print("¿Deseas evaluar otra cadena? (s/n): ");
 			respuesta = leer.next().charAt(0);
